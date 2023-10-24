@@ -1,0 +1,38 @@
+<div class="quiz-container">
+    <label for="categorySelect">Kategorie auswählen: </label>
+    <select id="categorySelect" [(ngModel)]="selectedTopic" (ngModelChange)="onCategoryChange()">
+        <option value="" disabled>Kategorien</option>
+        <option *ngFor="let categoryOfQuiz of quizzes" [value]="categoryOfQuiz.category">{{ categoryOfQuiz.category }}</option>
+    </select>
+
+    <div *ngIf="selectedCategory">
+        <div class="progress">
+            <div class="progress-bar" [style.width.%]="progressbarWidth"></div>
+        </div>
+
+        <div *ngIf="currentQuestionIndex < selectedCategory.quiz.length" class="question-container">
+            <h2>{{ selectedCategory.quiz[currentQuestionIndex].question }}</h2>
+            <div class="options">
+                <div *ngFor="let option of selectedCategory.quiz[currentQuestionIndex].options; let i = index">
+                    <p (click)="checkAnswer(i)" class="option" [ngClass]="{'selected': i == selectedOptionIndexes[currentQuestionIndex]}">{{ option }}</p>
+                </div>
+            </div>
+        </div>    
+
+        <div class="navigation-buttons">
+            <button (click)="previousQuestion()">Voherige Frage</button>
+            <button (click)="nextQuestion()">Nächste Frage</button>
+        </div>
+    </div>
+
+    <div *ngIf="selectedCategory && (currentQuestionIndex >= selectedCategory.quiz.length || answeredQuestions.length == selectedCategory.quiz.length)" class="quiz-end">
+        <p>Quiz beendet!</p>
+        <p>Du hast {{score}} Punkte gesammelt</p>
+    </div>
+</div>
+
+
+
+
+
+

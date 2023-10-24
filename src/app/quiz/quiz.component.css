@@ -1,0 +1,81 @@
+/* Stil für den gesamten Quiz-Container */
+.quiz-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+#categorySelect {
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 20px;
+    background-color: #ddd;
+    border: 1px solid #999;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #3498db;
+}
+
+/* Stil für die Frage und Optionen */
+.question-container {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 100%;
+}
+
+.option {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.selected {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Stil für die Navigationsbuttons */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Stil für den Quiz-Endbildschirm */
+.quiz-end {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}

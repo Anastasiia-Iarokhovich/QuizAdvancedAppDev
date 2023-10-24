@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.logo img {
+    max-width: 100px; /* Maximale Breite des Logos */
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px; /* Abstand zwischen den Nav-Elementen */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    text-decoration: underline; /* Unterstreichung bei Hover */
+}
