@@ -11,6 +11,7 @@
 
 #categorySelect {
     margin-bottom: 20px;
+    /* cursor: pointer; */
 }
 
 .progress {
@@ -41,6 +42,7 @@ h2 {
     flex-direction: column;
     align-items: stretch;
     max-width: 100%;
+    cursor: pointer;
 }
 
 .option {
@@ -48,6 +50,7 @@ h2 {
     margin: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    /* cursor: pointer; */
 }
 
 .selected {

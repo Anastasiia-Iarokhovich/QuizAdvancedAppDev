@@ -9,6 +9,7 @@ import { QuizService } from './Services/quizService';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ScoreComponent } from './score/score.component';
+import { QuizDataService } from './Services/quizDataService';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ScoreComponent } from './score/score.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [QuizService],
+  providers: [QuizService, QuizDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

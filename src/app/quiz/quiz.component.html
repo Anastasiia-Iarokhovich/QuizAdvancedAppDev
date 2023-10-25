@@ -5,11 +5,16 @@
         <option *ngFor="let categoryOfQuiz of quizzes" [value]="categoryOfQuiz.category">{{ categoryOfQuiz.category }}</option>
     </select>
 
-    <div *ngIf="selectedCategory">
+    <!-- <div *ngIf="!selectedCategory">
+        <h2>Wähle eine Kategorie und starte ein Quiz</h2>
+    </div> -->
+
+    <div *ngIf="selectedCategory && currentQuestionIndex < selectedCategory.quiz.length">
         <div class="progress">
             <div class="progress-bar" [style.width.%]="progressbarWidth"></div>
         </div>
 
+        <!-- currentQuestionIndex: answeredQuestions.length -->
         <div *ngIf="currentQuestionIndex < selectedCategory.quiz.length" class="question-container">
             <h2>{{ selectedCategory.quiz[currentQuestionIndex].question }}</h2>
             <div class="options">
@@ -19,13 +24,14 @@
             </div>
         </div>    
 
-        <div class="navigation-buttons">
+        <div *ngIf="currentQuestionIndex < selectedCategory.quiz.length" class="navigation-buttons" >
             <button (click)="previousQuestion()">Voherige Frage</button>
             <button (click)="nextQuestion()">Nächste Frage</button>
         </div>
+
     </div>
 
-    <div *ngIf="selectedCategory && (currentQuestionIndex >= selectedCategory.quiz.length || answeredQuestions.length == selectedCategory.quiz.length)" class="quiz-end">
+    <div *ngIf="selectedCategory && answeredQuestions.length == selectedCategory.quiz.length" class="quiz-end">
         <p>Quiz beendet!</p>
         <p>Du hast {{score}} Punkte gesammelt</p>
     </div>
