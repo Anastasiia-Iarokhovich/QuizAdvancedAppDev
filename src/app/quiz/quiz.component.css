@@ -73,6 +73,10 @@ button {
     cursor: pointer;
 }
 
+button[disabled] {
+    background-color: lightgray;
+}
+
 /* Stil für den Quiz-Endbildschirm */
 .quiz-end {
     margin-top: 20px;

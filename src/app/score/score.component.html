@@ -1,4 +1,5 @@
-<table>
+<h2 *ngIf="quizScores.length == 0">Du hast noch keine Punkte gesammelt!</h2>
+<table *ngIf="quizScores.length > 0">
   <tr>
     <th>#</th>
     <th>Kategorie</th>

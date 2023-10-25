@@ -5,10 +5,6 @@
         <option *ngFor="let categoryOfQuiz of quizzes" [value]="categoryOfQuiz.category">{{ categoryOfQuiz.category }}</option>
     </select>
 
-    <!-- <div *ngIf="!selectedCategory">
-        <h2>Wähle eine Kategorie und starte ein Quiz</h2>
-    </div> -->
-
     <div *ngIf="selectedCategory && currentQuestionIndex < selectedCategory.quiz.length">
         <div class="progress">
             <div class="progress-bar" [style.width.%]="progressbarWidth"></div>
@@ -26,7 +22,7 @@
 
         <div *ngIf="currentQuestionIndex < selectedCategory.quiz.length" class="navigation-buttons" >
             <button (click)="previousQuestion()">Voherige Frage</button>
-            <button (click)="nextQuestion()">Nächste Frage</button>
+            <button (click)="nextQuestion()" [disabled]="!isAnyOptionSelected()">Nächste Frage</button>
         </div>
 
     </div>

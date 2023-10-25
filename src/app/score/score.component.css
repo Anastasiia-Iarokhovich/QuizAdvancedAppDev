@@ -16,6 +16,10 @@ td, th {
 tr:hover {
   background-color: #e0e0e0;
 }
+
+h2 {
+  text-align:center;
+}
   
 @media (max-width: 750px) {
   table {

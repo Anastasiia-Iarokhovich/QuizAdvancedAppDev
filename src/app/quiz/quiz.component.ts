@@ -73,12 +73,16 @@ export class QuizComponent implements OnInit {
       }
       this.answeredQuestions.push(this.currentQuestionIndex);
     }  
-    
+
     if(this.selectedCategory && this.answeredQuestions.length == this.selectedCategory.quiz.length) {
       const categoryName = this.selectedCategory.category;
       const scoreQuiz = this.score;
       this.quizDataService.setCategoryNameAndScore(categoryName, scoreQuiz);
     } 
   }
+
+  isAnyOptionSelected(): boolean {
+    return this.selectedOptionIndexes[this.currentQuestionIndex] !== undefined;
+  }  
 
 }
