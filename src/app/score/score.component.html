@@ -1,13 +1,15 @@
-<h2 *ngIf="quizScores.length == 0">Du hast noch keine Punkte gesammelt!</h2>
-<table *ngIf="quizScores.length > 0">
+<h2 *ngIf="users.length == 0">Du hast noch keine Punkte gesammelt!</h2>
+<table *ngIf="users.length > 0">
   <tr>
     <th>#</th>
+    <th>Name</th>
     <th>Kategorie</th>
     <th>Punktestand</th>
   </tr>
-  <tr *ngFor="let quizScore of quizScores; let i = index">
+  <tr *ngFor="let user of users; let i = index">
     <td>{{ i + 1 }}</td>
-    <td>{{ quizScore.category }}</td>
-    <td>{{ quizScore.score }}</td>
+    <td>{{ user.user }}</td>
+    <td>{{ user.category }}</td>
+    <td>{{ user.score }}</td>
   </tr>
 </table>

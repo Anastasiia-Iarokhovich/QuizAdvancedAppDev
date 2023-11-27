@@ -3,10 +3,15 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #f7f7f7;
-    text-align: center;
+    background-color: #f7f7f7; */
+    /* text-align: center; */
+}
+
+mat-card-header {
+    display: flex;
+    justify-content: center;
 }
 
 #categorySelect {
@@ -16,7 +21,7 @@
 
 .progress {
     height: 20px;
-    background-color: #ddd;
+    /* background-color: #ddd; */
     border: 1px solid #999;
     border-radius: 5px;
     overflow: hidden;
@@ -24,7 +29,7 @@
 
 .progress-bar {
     height: 100%;
-    background-color: #3498db;
+    /* background-color: #3F51B5; */
 }
 
 /* Stil für die Frage und Optionen */
@@ -54,7 +59,7 @@ h2 {
 }
 
 .selected {
-    background-color: #3498db;
+    background-color: #3F51B5;
     color: #fff;
 }
 
@@ -64,25 +69,23 @@ h2 {
     justify-content: space-between;
 }
 
-button {
+/* button {
     padding: 10px 20px;
     background-color: #3498db;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-button[disabled] {
-    background-color: lightgray;
-}
+} */
 
 /* Stil für den Quiz-Endbildschirm */
 .quiz-end {
     margin-top: 20px;
     padding: 20px;
-    background-color: #3498db;
+    background-color: #3F51B5;
     color: #fff;
     border-radius: 5px;
     text-align: center;
 }
+
+

@@ -9,8 +9,11 @@ import { QuizService } from './Services/quizService';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ScoreComponent } from './score/score.component';
-import { QuizDataService } from './Services/quizDataService';
+import { UserService } from './Services/userService';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,12 @@ import { QuizDataService } from './Services/quizDataService';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatProgressBarModule,
+    MatCardModule
   ],
-  providers: [QuizService, QuizDataService],
+  providers: [QuizService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

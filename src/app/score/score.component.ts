@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { QuizDataService } from '../Services/quizDataService';
-import { QuizScore } from '../Models/QuizScore';
+import { Component, OnInit} from '@angular/core';
+import { UserService } from '../Services/userService';
+import { User } from '../Models/User';
 
 @Component({
   selector: 'app-score',
@@ -9,13 +9,12 @@ import { QuizScore } from '../Models/QuizScore';
 })
 export class ScoreComponent implements OnInit {
 
-  quizScores: QuizScore[] = [];
+  users: User[] = [];
 
-  constructor(private quizDataService: QuizDataService) {
-    this.quizScores = this.quizDataService.quizScores;
+  constructor(private userService: UserService) {
+    this.users = this.userService.getAll();
   }
 
   ngOnInit(): void {
   }
-
 }

@@ -6,6 +6,7 @@ export class QuizService{
     quizzes: QuizCategory[] = [
 
         new QuizCategory(
+            100,
             "Geographie", 
             [
             new Quiz(1, "Was ist die Hauptstadt von Frankreich?", ["Berlin", "Madrid", "Paris", "Rom"], 2),
@@ -14,19 +15,22 @@ export class QuizService{
             ]
         ),
         new QuizCategory(
+            101,
             "Chemie", 
             [         
-            new Quiz(4, "Was ist die chemische Formel für Wasser?", ["H2O", "CO2", "NaCl", "O2"], 0),
-            new Quiz(4, "quiestion", ["1", "2", "3", "4"], 0)
+            new Quiz(4, "Was ist die chemische Formel für Wasser?", ["H2O", "CO2", "NaCl", "O2"], 0)
             ]
         ),
         new QuizCategory(
+            102,
             "Kunst", 
             [        
-            new Quiz(5, "Wer malte die Mona Lisa?", ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Michelangelo"], 0)
+            new Quiz(5, "Wer malte die Mona Lisa?", ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Michelangelo"], 0),
+            new Quiz(7, "Welcher Künstler gilt als Mitbegründer des Surrealismus?", ["Pablo Picasso", "Vincent van Gogh", " Salvador Dalí", "Jackson Pollock"], 2)
             ]
         ),
         new QuizCategory(
+            103,
             "Biologie", 
             [
             new Quiz(2, "Welches Tier lebt im Wasser?", ["Hund", "Katze", "Fisch", "Vogel"], 2)
@@ -39,5 +43,4 @@ export class QuizService{
     getAll(): QuizCategory[] {
         return this.quizzes;
     }
-
 }

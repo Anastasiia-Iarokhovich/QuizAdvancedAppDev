@@ -1,37 +1,44 @@
-<div class="quiz-container">
-    <label for="categorySelect">Kategorie auswählen: </label>
-    <select id="categorySelect" [(ngModel)]="selectedTopic" (ngModelChange)="onCategoryChange()">
-        <option value="" disabled>Kategorien</option>
-        <option *ngFor="let categoryOfQuiz of quizzes" [value]="categoryOfQuiz.category">{{ categoryOfQuiz.category }}</option>
-    </select>
+<mat-card class="quiz-container">
 
-    <div *ngIf="selectedCategory && currentQuestionIndex < selectedCategory.quiz.length">
-        <div class="progress">
-            <div class="progress-bar" [style.width.%]="progressbarWidth"></div>
-        </div>
-
-        <!-- currentQuestionIndex: answeredQuestions.length -->
-        <div *ngIf="currentQuestionIndex < selectedCategory.quiz.length" class="question-container">
-            <h2>{{ selectedCategory.quiz[currentQuestionIndex].question }}</h2>
-            <div class="options">
-                <div *ngFor="let option of selectedCategory.quiz[currentQuestionIndex].options; let i = index">
-                    <p (click)="checkAnswer(i)" class="option" [ngClass]="{'selected': i == selectedOptionIndexes[currentQuestionIndex]}">{{ option }}</p>
-                </div>
+    <mat-card-header>
+        <label for="categorySelect">Kategorie auswählen: </label>
+        <select id="categorySelect" [(ngModel)]="selectedTopic" (ngModelChange)="onCategoryChange()">
+            <option value="" disabled>Kategorien</option>
+            <option *ngFor="let categoryOfQuiz of quizzes" [value]="categoryOfQuiz.category">{{ categoryOfQuiz.category }}</option>
+        </select>
+    </mat-card-header>
+       
+    <mat-card-content>
+        <div *ngIf="selectedCategory && currentQuestionIndex < selectedCategory.quiz.length && !quizCompleted">
+            <div class="progress">
+                <mat-progress-bar class="progress-bar" [style.width.%]="progressbarWidth"></mat-progress-bar>
             </div>
-        </div>    
 
-        <div *ngIf="currentQuestionIndex < selectedCategory.quiz.length" class="navigation-buttons" >
-            <button (click)="previousQuestion()">Voherige Frage</button>
-            <button (click)="nextQuestion()" [disabled]="!isAnyOptionSelected()">Nächste Frage</button>
+            <div *ngIf="currentQuestionIndex < selectedCategory.quiz.length " class="question-container">
+                <h2>{{ selectedCategory.quiz[currentQuestionIndex].question }}</h2>
+                <div class="options">
+                    <div *ngFor="let option of selectedCategory.quiz[currentQuestionIndex].options; let i = index">
+                        <p (click)="checkAnswer(i)" class="option" [ngClass]="{'selected': i == selectedOptionIndexes[currentQuestionIndex]}">{{ option }}</p>
+                    </div>
+                </div>
+            </div>  
+       
+            <mat-card-actions>
+                <div *ngIf="currentQuestionIndex < selectedCategory.quiz.length" class="navigation-buttons" >
+                    <button mat-raised-button color="primary" (click)="previousQuestion()">Voherige Frage</button>                                   
+                    <button mat-raised-button color="primary" *ngIf="currentQuestionIndex < selectedCategory.quiz.length - 1 && currentQuestionIndex !== selectedCategory.quiz.length - 1" (click)="nextQuestion()">Nächste Frage</button>
+                    <button mat-raised-button color="accent" *ngIf="currentQuestionIndex === selectedCategory.quiz.length - 1" (click)="Finish()">Beenden</button>
+                </div>
+            </mat-card-actions>
         </div>
 
-    </div>
+        <div *ngIf="quizCompleted" class="quiz-end">
+            <p>Quiz beendet!</p>
+            <p>Du hast {{score}} Punkte gesammelt</p>
+        </div>
+    </mat-card-content>
 
-    <div *ngIf="selectedCategory && answeredQuestions.length == selectedCategory.quiz.length" class="quiz-end">
-        <p>Quiz beendet!</p>
-        <p>Du hast {{score}} Punkte gesammelt</p>
-    </div>
-</div>
+</mat-card>
 
 
 
